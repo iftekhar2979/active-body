@@ -9,8 +9,10 @@ import ExerciseDetail from './ExerciseDetail';
 import profile from './img/profile.jpg';
 
 const Profile = ({ time }) => {
+  //for changing break time  dynamicaly we used use state here
   const [first, setfirst] = useState(0);
 
+  //break times
   const breakTime = [10, 20, 30, 40, 50, 60];
   let totalTime = 0;
   const totaltimewill = () => {
