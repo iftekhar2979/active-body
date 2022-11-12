@@ -14,7 +14,6 @@ function App() {
     })
   },[])
 const handleButton=(e)=>{
-// console.log([...time,e]);
 setTime([...time,e])
  
 }
