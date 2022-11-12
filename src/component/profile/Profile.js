@@ -20,17 +20,19 @@ const Profile = ({ time }) => {
     return totalTime;
   };
   const mytotaltime = totaltimewill();
-
+//loading local storage data to ui
   useEffect(() => {
     const mybreakseconds = localStorage.getItem('time');
     setfirst(mybreakseconds);
   }, []);
+  //handlaling break button
   const handlebreakButton = (e) => {
     setfirst(e);
+  
     localStorage.setItem('time', e);
   };
   const toastify = () => {
-    toast('Very Good');
+    toast('Good Job charge and refresh you body');
   };
 
   return (
