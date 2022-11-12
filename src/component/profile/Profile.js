@@ -34,8 +34,8 @@ const Profile = ({ time }) => {
   };
 
   return (
-    <div className='text-left'>
-      <div className='w-3/12 fixed'>
+    
+      <div className='w-3/12 '>
         <div className='flex'>
           <img src={profile} alt='Iftekhar' className='rounded-3xl w-20' />
           <div>
@@ -71,7 +71,7 @@ const Profile = ({ time }) => {
           />
         </div>
       </div>
-    </div>
+   
   );
 };
 
