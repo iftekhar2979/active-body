@@ -1,6 +1,6 @@
 import { faLocationPin } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Break from './Break';
 import Detail from './Detail';
 import ExerciseDetail from './ExerciseDetail';
@@ -20,10 +20,18 @@ const Profile = ({ time }) => {
   };
   const mytotaltime = totaltimewill();
 
+  useEffect(()=>{
+    const mybreakseconds=localStorage.getItem('time')
+    setfirst(mybreakseconds)
+  },[])
   const handlebreakButton = (e) => {
     setfirst(e)
+    localStorage.setItem('time',e)
+    // window.location.reload()
+ 
   };
   
+  // console.log(first);
 // console.log(first);
   return (
     <div className='text-left'>
@@ -52,6 +60,9 @@ const Profile = ({ time }) => {
           name='Break Time'
           time={first}
         ></ExerciseDetail>
+        <div className='text-center'>
+        <button  className="btn btn-blue-700 mt-5">Activate</button>
+        </div>
       </div>
     </div>
   );

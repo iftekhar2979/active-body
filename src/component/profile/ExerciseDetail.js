@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ExerciseDetail = ({name,time}) => {
-    // console.log(typeof time)
+    console.log(time)
   
     // console.log(time.length);
     
