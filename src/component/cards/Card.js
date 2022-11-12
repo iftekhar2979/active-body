@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Card = ({ data ,clickHandler}) => {
+const Card = ({ data ,clickHandler,}) => {
   const { name, picture, details, forAge ,time} = data;
   return (
     <div className='mt-3 m-2'>
@@ -18,7 +18,7 @@ const Card = ({ data ,clickHandler}) => {
           <p>for Age : {forAge} years</p>
           <p>Duration : {time} seconds</p>
           <div className='card-actions'>
-            <button onClick={()=>clickHandler(data)} className='btn btn-primary'>Add to WishList</button>
+            <button onClick={()=>clickHandler(data)} className='btn bg-sky-500 border-blue-500 hover:bg-slate-500'>Add to WishList</button>
           </div>
         </div>
       </div>

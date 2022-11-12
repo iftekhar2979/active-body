@@ -15,11 +15,11 @@ function App() {
   },[])
 const handleButton=(e)=>{
 setTime([...time,e])
- 
+
 }
   return (
     <div className=' container mx-auto flex mt-5'>
-    <Header exercise={exercise} time={time} clickHandler={handleButton}></Header>
+    <Header exercise={exercise} time={time} clickHandler={handleButton} ></Header>
     <Profile time={time}></Profile>
     
     </div>

@@ -1,38 +1,38 @@
 import { faLocationPin } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Break from './Break';
 import Detail from './Detail';
 import ExerciseDetail from './ExerciseDetail';
 import profile from './img/profile.jpg';
 
 const Profile = ({ time }) => {
-  const [first, setfirst] = useState(0)
-  
+  const [first, setfirst] = useState(0);
+
   const breakTime = [10, 20, 30, 40, 50, 60];
   let totalTime = 0;
   const totaltimewill = () => {
     for (const item of time) {
       totalTime = item.time + totalTime;
-      // console.log(totalTime);
     }
     return totalTime;
   };
   const mytotaltime = totaltimewill();
 
-  useEffect(()=>{
-    const mybreakseconds=localStorage.getItem('time')
-    setfirst(mybreakseconds)
-  },[])
+  useEffect(() => {
+    const mybreakseconds = localStorage.getItem('time');
+    setfirst(mybreakseconds);
+  }, []);
   const handlebreakButton = (e) => {
-    setfirst(e)
-    localStorage.setItem('time',e)
-    // window.location.reload()
- 
+    setfirst(e);
+    localStorage.setItem('time', e);
   };
-  
-  // console.log(first);
-// console.log(first);
+  const toastify = () => {
+    toast('Very Good');
+  };
+
   return (
     <div className='text-left'>
       <div className='w-3/12 fixed'>
@@ -50,18 +50,25 @@ const Profile = ({ time }) => {
           </div>
         </div>
         <Detail></Detail>
-        <Break breakTime={breakTime} handlebreakButton={handlebreakButton} ></Break>
+        <Break
+          breakTime={breakTime}
+          handlebreakButton={handlebreakButton}
+        ></Break>
         <h2 className='text-3xl font-bold mt-4'>Exercise Details</h2>
         <ExerciseDetail
           name='Exercise Time'
           time={mytotaltime}
         ></ExerciseDetail>
-        <ExerciseDetail
-          name='Break Time'
-          time={first}
-        ></ExerciseDetail>
+        <ExerciseDetail name='Break Time' time={first}></ExerciseDetail>
         <div className='text-center'>
-        <button  className="btn btn-blue-700 mt-5">Activate</button>
+          <button onClick={toastify} className='btn btn-blue-700 mt-5'>
+            Activate
+          </button>
+          <ToastContainer
+            position='top-center'
+            autoClose={5000}
+            hideProgressBar={false}
+          />
         </div>
       </div>
     </div>
