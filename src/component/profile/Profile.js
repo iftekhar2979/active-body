@@ -36,7 +36,7 @@ const Profile = ({ time }) => {
   return (
     
       <div className='w-3/12 '>
-        <div className='flex'>
+        <div className='flex flex-col md:flex-row '>
           <img src={profile} alt='Iftekhar' className='rounded-3xl w-20' />
           <div>
             <h2 className='text-2xl font-bold ml-4'>Iftekhar</h2>
