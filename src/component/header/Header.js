@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 import Exercises from '../cards/Exercises';
+import Question from '../question/Question';
 
 const Header = ({exercise,clickHandler,time}) => {
   return (
@@ -15,6 +16,7 @@ const Header = ({exercise,clickHandler,time}) => {
         <h1 className='text-4xl font-bold ml-2 text-green-400'>Charge Body</h1>
       </div>
       <Exercises data={exercise} clickHandler={clickHandler} time={time} ></Exercises>
+      <Question></Question>
     </div>
   );
 };
