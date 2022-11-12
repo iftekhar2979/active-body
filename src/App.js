@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import Header from './component/header/Header';
+import Profile from './component/profile/Profile';
 
 function App() {
+  const [exercise, setExercise] = useState([])
+  const [time,setTime]=useState([])
+  useEffect(()=>{
+    fetch('fakeData.json')
+    .then(res=>res.json())
+    .then(data=>{
+    setExercise(data)
+    })
+  },[])
+const handleButton=(e)=>{
+// console.log([...time,e]);
+setTime([...time,e])
+ 
+}
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className=' container mx-auto flex mt-5'>
+    <Header exercise={exercise} time={time} clickHandler={handleButton}></Header>
+    <Profile time={time}></Profile>
+    
     </div>
   );
 }
